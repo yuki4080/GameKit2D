@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -11,6 +12,8 @@ namespace Gamekit2D
     [RequireComponent(typeof(Collider2D))]
     public class EnemyBehaviour : MonoBehaviour
     {
+        PlayerInput _input;
+
         static Collider2D[] s_ColliderCache = new Collider2D[16];
 
         public Vector3 moveVector { get { return m_MoveVector; } }
@@ -229,8 +232,10 @@ namespace Gamekit2D
 
         public void ScanForPlayer()
         {
+            PlayerCharacter.PlayerInstance.TryGetComponent(out _input);
+
             //If the player don't have control, they can't react, so do not pursue them
-            if (!PlayerInput.Instance.HaveControl)
+            if (!_input.inputIsActive)  //PlayerInput.Instance.HaveControl
                 return;
 
             Vector3 dir = PlayerCharacter.PlayerInstance.transform.position - transform.position;

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace Gamekit2D
@@ -109,12 +110,12 @@ namespace Gamekit2D
 
             if (m_PlayerInput == null)
                 m_PlayerInput = FindObjectOfType<PlayerInput>();
-            m_PlayerInput.ReleaseControl(resetInputValues);
+            m_PlayerInput.DeactivateInput();    //m_PlayerInput.ReleaseControl(resetInputValues);
             yield return StartCoroutine(ScreenFader.FadeSceneOut(ScreenFader.FadeType.Loading));
             PersistentDataManager.ClearPersisters();
             yield return SceneManager.LoadSceneAsync(newSceneName);
             m_PlayerInput = FindObjectOfType<PlayerInput>();
-            m_PlayerInput.ReleaseControl(resetInputValues);
+            m_PlayerInput.DeactivateInput();    //m_PlayerInput.ReleaseControl(resetInputValues);
             PersistentDataManager.LoadAllData();
             SceneTransitionDestination entrance = GetDestination(destinationTag);
             SetEnteringGameObjectLocation(entrance);
@@ -122,7 +123,7 @@ namespace Gamekit2D
             if(entrance != null)
                 entrance.OnReachDestination.Invoke();
             yield return StartCoroutine(ScreenFader.FadeSceneIn());
-            m_PlayerInput.GainControl();
+            m_PlayerInput.ActivateInput();    //m_PlayerInput.GainControl();
 
             m_Transitioning = false;
         }

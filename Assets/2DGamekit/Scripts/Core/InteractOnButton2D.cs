@@ -1,13 +1,20 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 namespace Gamekit2D
 {
     public class InteractOnButton2D : InteractOnTrigger2D
     {
+        PlayerInput _input;
         public UnityEvent OnButtonPress;
 
         bool m_CanExecuteButtons;
+
+        private void Awake()
+        {
+            
+        }
 
         protected override void ExecuteOnEnter(Collider2D other)
         {
@@ -25,7 +32,7 @@ namespace Gamekit2D
         {
             if (m_CanExecuteButtons)
             {
-                if (OnButtonPress.GetPersistentEventCount() > 0 && PlayerInput.Instance.Interact.Down)
+                if (OnButtonPress.GetPersistentEventCount() > 0 && _input.actions["Interact"].WasPressedThisFrame())  //PlayerInput.Instance.Interact.Down
                     OnButtonPress.Invoke();
             }
         }

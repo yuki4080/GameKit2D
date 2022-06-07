@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Gamekit2D
 {
@@ -75,7 +76,7 @@ namespace Gamekit2D
             {
                 if (m_PlayerInput == null)
                     m_PlayerInput = FindObjectOfType<PlayerInput> ();
-                m_PlayerInput.ReleaseControl (resetInputValues);
+                //m_PlayerInput.ReleaseControl (resetInputValues);
             }
 
             if(fade)
@@ -88,7 +89,7 @@ namespace Gamekit2D
 
             if (releaseControl)
             {
-                m_PlayerInput.GainControl ();
+                //m_PlayerInput.GainControl ();
             }
 
             m_Transitioning = false;

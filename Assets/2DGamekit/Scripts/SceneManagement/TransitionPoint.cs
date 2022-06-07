@@ -1,12 +1,15 @@
 ﻿using Cinemachine;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
+using UnityEngine.InputSystem;
 
 namespace Gamekit2D
 {
     [RequireComponent(typeof(Collider2D))]
     public class TransitionPoint : MonoBehaviour
     {
+        PlayerInput _input;
+
         public enum TransitionType
         {
             DifferentZone, DifferentNonGameplayScene, SameScene,
@@ -41,6 +44,12 @@ namespace Gamekit2D
         public InventoryController.InventoryChecker inventoryCheck;
     
         bool m_TransitioningGameObjectPresent;
+
+        private void Awake()
+        {
+            if (transitioningGameObject != null)
+                transitioningGameObject.TryGetComponent(out _input);
+        }
 
         void Start ()
         {
@@ -80,7 +89,7 @@ namespace Gamekit2D
 
             if (transitionWhen == TransitionWhen.InteractPressed)
             {
-                if (PlayerInput.Instance.Interact.Down)
+                if (_input.actions["Interact"].WasPressedThisFrame())     //PlayerInput.Instance.Interact.Down
                 {
                     TransitionInternal ();
                 }
