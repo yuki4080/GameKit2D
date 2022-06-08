@@ -1763,7 +1763,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1409900103}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: ReleaseControl
         m_Mode: 6
@@ -1802,7 +1802,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1409900103}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: GainControl
         m_Mode: 1
@@ -46501,18 +46501,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1409900101}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1409900103 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114734347468151670, guid: 73360cdb4e1e7ed4897690f9d57fd0eb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1409900101}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409900102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeecda2baef25704c8fe802e627e9f27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1409900104 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114774311958850474, guid: 73360cdb4e1e7ed4897690f9d57fd0eb,
