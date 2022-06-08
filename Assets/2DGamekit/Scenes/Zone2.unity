@@ -8001,6 +8001,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9dfe00ad5fa4db7857a85c2f5009f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &289758616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7966098888778447283, guid: 73360cdb4e1e7ed4897690f9d57fd0eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 289758611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289758614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &289758617 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114774311958850474, guid: 73360cdb4e1e7ed4897690f9d57fd0eb,
@@ -27429,10 +27441,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ReleaseControl
-        m_Mode: 6
+      - m_Target: {fileID: 289758616}
+        m_TargetAssemblyTypeName: UnityEngine.InputSystem.PlayerInput, Unity.InputSystem
+        m_MethodName: DeactivateInput
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -27444,9 +27456,9 @@ MonoBehaviour:
   OnDirectorFinish:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: GainControl
+      - m_Target: {fileID: 289758616}
+        m_TargetAssemblyTypeName: UnityEngine.InputSystem.PlayerInput, Unity.InputSystem
+        m_MethodName: ActivateInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

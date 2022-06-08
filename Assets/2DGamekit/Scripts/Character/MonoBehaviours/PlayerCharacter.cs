@@ -566,12 +566,12 @@ namespace Gamekit2D
 
         public bool CheckForJumpInput()
         {
-            return _input.actions["Jump"].IsPressed();      //PlayerInput.Instance.Jump.Down
+            return _input.actions["Jump"].WasPressedThisFrame();      //PlayerInput.Instance.Jump.Down
         }
 
         public bool CheckForFallInput()
         {
-            return _input.actions["Move"].ReadValue<Vector2>().y < -float.Epsilon && _input.actions["Jump"].IsPressed();      //PlayerInput.Instance.Vertical.Value, PlayerInput.Instance.Jump.Down
+            return _input.actions["Move"].ReadValue<Vector2>().y < -float.Epsilon && _input.actions["Jump"].WasPressedThisFrame();      //PlayerInput.Instance.Vertical.Value, PlayerInput.Instance.Jump.Down
         }
 
         public bool MakePlatformFallthrough()
@@ -741,7 +741,7 @@ namespace Gamekit2D
 
         public bool CheckForMeleeAttackInput()
         {
-            return _input.actions["MeleeAttack"].IsPressed();       //PlayerInput.Instance.MeleeAttack.Down
+            return _input.actions["MeleeAttack"].WasPressedThisFrame();       //PlayerInput.Instance.MeleeAttack.Down
         }
 
         public void MeleeAttack()
